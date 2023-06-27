@@ -1,0 +1,25 @@
+public class Paciente extends Persona {
+
+	public Paciente(String primerNombre, String segundoNombre, String primerApellido, String segundoApellido,
+			String tipoDocumento, String numeroDocumento, String fechaExpedicionDoc) {
+		super(primerNombre, segundoNombre, primerApellido, segundoApellido, tipoDocumento, numeroDocumento, fechaExpedicionDoc);
+		// TODO Auto-generated constructor stub
+	}
+	
+	@Override
+	public boolean equals(Object o) {
+		
+		if(o instanceof Paciente) {
+			
+			Paciente otherPaciente = (Paciente)o;
+			
+			if(otherPaciente.getNumeroDocumento() == this.getNumeroDocumento()) {
+				return true;
+			}else {
+				return false;
+			}
+		}else {
+			return false;
+		}
+	}
+}
