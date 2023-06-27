@@ -1,0 +1,67 @@
+import java.util.ArrayList;
+
+public class PacienteServicio implements IProceso{
+
+	private ArrayList<Paciente> pacienteList;
+	
+	@Override
+	public boolean registrar(String primerNombre, String segundoNombre, String primerApellido, String segundoApellido,
+			String tipoDocumento, String numeroDocumento, String fechaExpedicionDoc) {
+		// TODO Auto-generated method stub
+		
+		Paciente newPaciente = new Paciente(primerNombre, segundoNombre, primerApellido, segundoApellido, tipoDocumento, numeroDocumento, fechaExpedicionDoc);
+		
+		if(pacienteList.contains(newPaciente)) {
+			return false;
+		}else {
+			pacienteList.add(newPaciente);
+			return true;
+		}
+	}
+
+	@Override
+	public boolean editar(String numeroDocumento, String tipoDocumento, String primerNombre, String segundoNombre,
+			String primerApellido, String segundoApellido, String fechaExpedicionDoc) {
+		// TODO Auto-generated method stub
+		
+		Paciente newPaciente = new Paciente(primerNombre, segundoNombre, primerApellido, segundoApellido, tipoDocumento, numeroDocumento, fechaExpedicionDoc);
+		
+		int index = pacienteList.indexOf(newPaciente);
+		if(index != -1) {
+			pacienteList.set(index, newPaciente);
+			return true;
+		}else {
+			return false;
+		}
+	}
+
+	@Override
+	public Persona ver(String numeroDocumento) {
+		// TODO Auto-generated method stub
+		
+		Medico dummyPaciente = new Medico("", "", "", "", "", numeroDocumento, "");
+		
+		int index = pacienteList.indexOf(dummyPaciente);
+		
+		if(index != -1) {
+			return pacienteList.get(index);
+		}else {
+			return null;
+		}
+	}
+
+	@Override
+	public boolean eliminar(String numeroDocumento) {
+		// TODO Auto-generated method stub
+		
+		Medico dummyPaciente = new Medico("", "", "", "", "", numeroDocumento, "");
+		
+		int index = pacienteList.indexOf(dummyPaciente);
+		
+		if(index != -1) {
+			return pacienteList.remove(dummyPaciente);
+		}else {
+			return false;
+		}
+	}
+}
