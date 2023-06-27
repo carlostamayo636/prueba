@@ -1,0 +1,10 @@
+public interface IProceso {
+	
+	public boolean registrar(String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, String tipoDocumento, String numeroDocumento, String fechaExpedicionDoc);
+	
+	public boolean editar(String numeroDocumento, String tipoDocumento, String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, String fechaExpedicionDoc );
+
+	public Persona ver(String numeroDocumento); 
+	
+	public boolean eliminar(String numeroDocumento);
+}
